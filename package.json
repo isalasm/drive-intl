@@ -1,0 +1,54 @@
+{
+	"name": "drive-intl",
+	"version": "0.0.1",
+	"description": "Simple way to manage translations using a Google Sheet",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"files": ["dist"],
+	"scripts": {
+		"test": "jest",
+		"build": "npx tsup",
+		"link": "npm run build && npm link",
+		"biome:force": "npx @biomejs/biome check --apply-unsafe ./src/*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/isalasm/drive-intl.git"
+	},
+	"keywords": [
+		"internationalization",
+		"translations",
+		"google drive",
+		"google sheet"
+	],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/isalasm/drive-intl/issues"
+	},
+	"homepage": "https://github.com/isalasm/drive-intl#readme",
+	"devDependencies": {
+		"@biomejs/biome": "1.6.1",
+		"@types/jest": "^29.5.12",
+		"@types/node": "^20.11.30",
+		"jest": "^29.7.0",
+		"lefthook": "^1.6.7",
+		"semantic-release": "^23.0.8",
+		"ts-jest": "^29.1.2",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.3"
+	},
+	"dependencies": {
+		"axios": "^1.6.8"
+	},
+	"release": {
+		"branches": ["main"],
+		"plugins": [
+			"@semantic-release/commit-analyzer",
+			"@semantic-release/release-notes-generator",
+			["@semantic-release/npm", { "pkgRoot": "dist", "npmPublish": false }],
+			"@semantic-release/github"
+		]
+	}
+}
